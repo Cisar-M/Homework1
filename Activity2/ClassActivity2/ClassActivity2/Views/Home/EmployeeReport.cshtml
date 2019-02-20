@@ -1,0 +1,27 @@
+﻿@model ClassActivity2.ViewModel.ReportViewModel
+@using ClassActivity2.ViewModel
+@using System.Globalization
+@using System.Data
+
+
+
+<h2>Employee Report</h2>
+
+<div class="criteria">
+
+@using (Html.BeginForm("Report", "Home", FormMethod.Post))
+{
+    <label>Select Employee</label>
+    @Html.DropDownListFor(m => m.SelectedEmployeeID, Model.Employees, "Please select employee ID", new { @class = "form-control" })
+    <label>Date From</label>
+    @Html.TextBoxFor(m => m.DateFrom, "yyyy-MM-dd", new { @Value = "2013-08-01", @type = "date", @class = "form-control" })
+    <label>end Date</label>
+    @Html.TextBoxFor(m => m.DateTo, "yyyy-MM-dd", new { @Value = "2013-08-30", @type = "date", @class = "form-control" })
+    <br />
+    <input type="submit" value="Generate" class="btn btn-primary" />
+}
+
+
+
+</div>
+
